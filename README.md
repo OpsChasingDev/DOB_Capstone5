@@ -18,3 +18,13 @@ Integrating Ansible with Jenkins pipeline
     pip3 install boto3 botocore
     ```
   - AWS Credentials
+    - Make .aws directory in root user home
+      ```Bash
+      mkdir .aws
+      ```
+    - Make credentials file in new directory
+      ```Bash
+      cd .aws/
+      vim credentials
+      ```
+    - Paste content in new file from same file on local machine
