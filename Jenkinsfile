@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        ANSIBLE_SERVER = "206.81.7.158"
+    }
     stages {
         stage("copy files to ansible server") {
             steps {
@@ -10,7 +13,7 @@ pipeline {
 
                         // this part makes sure Ansible has the necessary private key to execute against EC2
                         withCredentials([sshUserPrivateKey(credentialsId: 'ec2-server-key', keyFileVariable: 'keyfile', usernameVariable: 'user')]) {
-                            sh "scp $keyfile root@206.81.7.158:/root/ssh-key.pem"
+                            sh "scp $keyfile root@$ANSIBLE_SERVER:/root/ssh-key.pem"
                         }
                     }
                 }
@@ -22,7 +25,7 @@ pipeline {
                     echo "executing ansible playbook"
                     def remote = [:]
                     remote.name = "ansible-server"
-                    remote.host = "206.81.7.158"
+                    remote.host = env.ANSIBLE_SERVER
                     remote.allowAnyHosts = true
 
                     withCredentials([sshUserPrivateKey(credentialsId: 'ansible-server-key', keyFileVariable: 'keyfile', usernameVariable: 'user')]) {
