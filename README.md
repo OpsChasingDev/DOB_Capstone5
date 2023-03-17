@@ -11,7 +11,7 @@ Integrating Ansible with Jenkins pipeline
     ssh-keygen -p -f .ssh/id_rsa -m pem -P "" -N ""
     ```
   - SSH Key to allow Ansible server to talk to EC2 server: create credential with "SSH username with private key" type; username will be "ec2-user", and private key will be the pem file contents created when the ec2 instances were made.
-- Dedicated Ansible control node server
+- Dedicated Ansible control node server (installations of Ansible, boto3, and botocore done with preprae-ansible.sh)
   - Install Ansible
     ```Bash
     apt install ansible
