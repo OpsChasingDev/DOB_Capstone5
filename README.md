@@ -28,4 +28,4 @@ Integrating Ansible with Jenkins pipeline
       vim credentials
       ```
     - Paste content in new file from same file on local machine
-- In this project, the ec2 instance are created manually
+- In this project, the ec2 instance are created manually.  When doing so, create a new key-pair; download this as it will be used by Ansible server to connect to ec2 instances
