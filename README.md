@@ -4,6 +4,7 @@ Integrating Ansible with Jenkins pipeline
 ## Requirements
 - Dedicated Jenkins server
   - Make sure SSH Agent plugin is installed (this is used for copying necessary files to Ansible control node)
+  - Make sure SSH Pipeline Steps plugin is installed (this is used for passing commands to remote Ansible control node)
   - SSH Key to allow Jenkins server to talk to Ansible server: create credential with "SSH username with private key" type; username will be "root", and private key will be the one used to access the Ansible and Jenkins servers on whatever platform they are running on.
   - If private key is in new type, convert it using the below:
     ```Bash
